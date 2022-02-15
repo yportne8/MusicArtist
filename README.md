@@ -50,7 +50,7 @@ Using closest match instead: Twenty One Pilots
  'Rap']
 ```
 
-### Sample Artist's Top Hits.
+### Artist's Top Hits.
 ```python
 >>> artist.tophits()
 ['Heavydirtysoul | Twenty One Pilots',
@@ -69,7 +69,7 @@ Using closest match instead: Twenty One Pilots
  'Goner | Twenty One Pilots']
 ```
 
-### Find Similar Artists
+### Similar Artists
 ```python
  >>> artist.similar()
  ['AJR ~ Twenty One Pilots',

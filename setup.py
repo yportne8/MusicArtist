@@ -10,7 +10,7 @@ URL = "https://github.com/yportne8/MusicArtist/"
 EMAIL = 'yportne8@gmail.com'
 AUTHOR = 'CS Kim'
 REQUIRES_PYTHON = '>=3.6.0'
-VERSION = '1.0.0'
+VERSION = '1.0.1'
 
 REQUIRED = ["requests_html"]
 EXTRAS = {}
