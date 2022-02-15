@@ -73,8 +73,9 @@ class MusicArtist:
                 schema = json.loads(schema.contents[0])
                 return schema
             except:
-                print(f"Access Denied: Status Code {res.status}")
-        print("Unable to fetch schema.")
+                msg += f"Access Denied: Status Code {res.status}\n"
+                msg += "Unable to fetch schema."
+                print(msg)
 
     def albums(self):
         try:
@@ -87,7 +88,6 @@ class MusicArtist:
             return albums
         except:
             print("Unable to fetch artist's albums.")
-            return
 
     def singles(self):
         try:
@@ -100,7 +100,6 @@ class MusicArtist:
             return singles
         except:
             print("Unable to fetch artist's albums.")
-            return
 
     def tophits(self):
         schema = self._schema()
@@ -119,6 +118,7 @@ class MusicArtist:
         return genres
 
     def similar(self):
+        session = None
         try:
             artists = []
             base = "https://www.allmusic.com/"
@@ -139,6 +139,11 @@ class MusicArtist:
                     artists.append(name+origin_tag)
             return artists
         except Exception as e:
+            if session:
+                try:
+                    session.close()
+                except:
+                    pass
             msg = "Unable to fetch similar artists.\n"
             msg += f"Execption: {str(e)}"
             print(msg)

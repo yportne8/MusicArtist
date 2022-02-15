@@ -1,8 +1,10 @@
+import tracemalloc
 import unittest
 from music_artist.artist import MusicArtist
 
 
 NAME = "Twenty One Pilots"
+tracemalloc.start() # unclosed socket in ytmusicapi pkg
 
 
 class TestYouTubeMusic(unittest.TestCase):
@@ -16,7 +18,6 @@ class TestYouTubeMusic(unittest.TestCase):
         artist = MusicArtist(NAME)
         singles = artist.singles()
         self.assertTrue(type(singles) == list)
-
 
 class TestITunes(unittest.TestCase):
     
