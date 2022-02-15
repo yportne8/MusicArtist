@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 from ytmusicapi import YTMusic
 
 
-class Artist:
+class MusicArtist:
 
 
     __all__ = ['albums', 'singles', 'genres', 'tophits', 'similar']
@@ -82,7 +82,7 @@ class Artist:
             albums = []
             for result in results:
                 if result['type'] == 'Album':
-                    album = f"{result['title']} by {self.name}"
+                    album = result['title']
                     albums.append(album)
             return albums
         except:
@@ -95,7 +95,7 @@ class Artist:
             singles = []
             for result in results:
                 if result['type'] == 'Single':
-                    single = f"{result['title']} by {self.name}"
+                    single = result['title']
                     singles.append(single)
             return singles
         except:
@@ -107,7 +107,7 @@ class Artist:
         if not schema:
             return
         examples = \
-            [f"{track['name']} by {self.name}" \
+            [f"{track['name']} | {self.name}" \
             for track in schema['workExample']]
         return examples
         
@@ -129,12 +129,14 @@ class Artist:
             params = params.split('" title="')[0]  
             artist_page = "https://www.allmusic.com/" + params
             res = session.get(f'{artist_page}/related')
+            session.close()
             results = res.text.split('Similar To')[1].split('<li>\n')
             for result in results:
                 if '/artist/' in result:
                     href_name = result.split('}">')
                     name = href_name[1].split('</a>')[0]
-                    artists.append(name)
+                    origin_tag = f" ~ {self.name}"
+                    artists.append(name+origin_tag)
             return artists
         except Exception as e:
             msg = "Unable to fetch similar artists.\n"

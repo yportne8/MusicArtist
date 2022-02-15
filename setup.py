@@ -4,15 +4,15 @@ import sys
 from shutil import rmtree
 from setuptools import find_packages, setup, Command
 
-NAME = 'mscookies'
-DESCRIPTION = 'Loads decrypted cookiejars from Chromium based browsers running on Microsoft Windows.'
-URL = "https://github.com/yportne8/MS-Cookies/"
+NAME = 'music_artist'
+DESCRIPTION = 'Gathers essential data-points for your favorite music artists from various public sources.'
+URL = "https://github.com/yportne8/MusicArtist/"
 EMAIL = 'yportne8@gmail.com'
 AUTHOR = 'CS Kim'
 REQUIRES_PYTHON = '>=3.6.0'
-VERSION = '1.0.1'
+VERSION = '1.0.0'
 
-REQUIRED = ["pycryptodome"]
+REQUIRED = ["requests_html"]
 EXTRAS = {}
 
 here = os.path.abspath(os.path.dirname(__file__))

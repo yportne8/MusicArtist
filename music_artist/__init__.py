@@ -1,1 +1,1 @@
-from music_artist.artist import Artist
+from music_artist.artist import MusicArtist
