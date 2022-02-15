@@ -50,7 +50,7 @@ Using closest match instead: Twenty One Pilots
  'Rap']
 ```
 
-### Sample Artist's Top Hits.
+### Artist's Top Hits
 ```python
 >>> artist.tophits()
 ['Heavydirtysoul | Twenty One Pilots',
