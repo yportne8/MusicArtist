@@ -1,5 +1,5 @@
 # MusicArtist
-Gathers essential data-points for your favorite music artists from various public sources.
+Gathers essential data-points for your favorite music artists from various sources.
 
 ## Installation via PyPi:
 ```
